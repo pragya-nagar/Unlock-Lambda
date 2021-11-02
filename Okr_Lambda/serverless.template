@@ -1,0 +1,361 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Transform": "AWS::Serverless-2016-10-31",
+  "Description": "An AWS Serverless Application.",
+  "Resources": {
+    "SentMailForLogin": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "Okr_Lambda::Okr_Lambda.Function::SentMailForLogin",
+        "Runtime": "dotnetcore3.1",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 60,
+        "Role": "arn:aws:iam::721152773350:role/service-role/Facial-Recognition-Aspire-DB-role-u002vk7n",
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            "sg-03b91ae4655c4485c"
+          ],
+          "SubnetIds": [
+            "subnet-0daee8af7302dc6c6",
+            "subnet-0a2f2993e2a2a8278"
+          ]
+        },
+        "Events": {
+          "RootGet": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/SentMailForLogin",
+              "Method": "GET"
+            }
+          },
+          "ScheduledQueryEvent": {
+            "Type": "Schedule",
+            "Properties": {
+              "Schedule": "cron(30 18 * * ? *)"
+            }
+          }
+        }
+      }
+    },
+    "UpdateStatusAfterPlanningSession": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "Okr_Lambda::Okr_Lambda.Function::UpdateStatusAfterPlanningSession",
+        "Runtime": "dotnetcore3.1",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 60,
+        "Role": "arn:aws:iam::721152773350:role/service-role/Facial-Recognition-Aspire-DB-role-u002vk7n",
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            "sg-03b91ae4655c4485c"
+          ],
+          "SubnetIds": [
+            "subnet-0daee8af7302dc6c6",
+            "subnet-0a2f2993e2a2a8278"
+          ]
+        },
+        "Events": {
+          "RootGet": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/UpdateStatusAfterPlanningSession",
+              "Method": "ANY"
+            }
+          },
+          "ScheduledQueryEvent": {
+            "Type": "Schedule",
+            "Properties": {
+              "Schedule": "cron(30 18 * * ? *)"
+            }
+          }
+        }
+      }
+    },
+    "UpdateSource": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "Okr_Lambda::Okr_Lambda.Function::UpdateSource",
+        "Runtime": "dotnetcore3.1",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 60,
+        "Role": "arn:aws:iam::721152773350:role/service-role/Facial-Recognition-Aspire-DB-role-u002vk7n",
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "AWSLambdaFullAccess"
+        ],
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            "sg-03b91ae4655c4485c"
+          ],
+          "SubnetIds": [
+            "subnet-0daee8af7302dc6c6",
+            "subnet-0a2f2993e2a2a8278"
+          ]
+        },
+        "Events": {
+          "RootGet": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/UpdateSource",
+              "Method": "ANY"
+            }
+          },
+          "ScheduledQueryEvent": {
+            "Type": "Schedule",
+            "Properties": {
+              "Schedule": "cron(30 18 * * ? *)"
+            }
+          }
+        }
+      }
+    },
+    "UsersKrSummary": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "Okr_Lambda::Okr_Lambda.Function::UsersKrSummary",
+        "Runtime": "dotnetcore3.1",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 60,
+        "Role": "arn:aws:iam::721152773350:role/service-role/Facial-Recognition-Aspire-DB-role-u002vk7n",
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "AWSLambdaFullAccess"
+        ],
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            "sg-03b91ae4655c4485c"
+          ],
+          "SubnetIds": [
+            "subnet-0daee8af7302dc6c6",
+            "subnet-0a2f2993e2a2a8278"
+          ]
+        },
+        "Events": {
+          "RootGet": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/UsersKrSummary",
+              "Method": "ANY"
+            }
+          },
+          "ScheduledQueryEvent": {
+            "Type": "Schedule",
+            "Properties": {
+              "Schedule": "cron(30 18 * * ? *)"
+            }
+          }
+        }
+      }
+    },
+    "UsersDraftKrSummary": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "Okr_Lambda::Okr_Lambda.Function::UsersDraftKrSummary",
+        "Runtime": "dotnetcore3.1",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 60,
+        "Role": "arn:aws:iam::721152773350:role/service-role/Facial-Recognition-Aspire-DB-role-u002vk7n",
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "AWSLambdaFullAccess"
+        ],
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            "sg-03b91ae4655c4485c"
+          ],
+          "SubnetIds": [
+            "subnet-0daee8af7302dc6c6",
+            "subnet-0a2f2993e2a2a8278"
+          ]
+        },
+        "Events": {
+          "RootGet": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/UsersDraftKrSummary",
+              "Method": "ANY"
+            }
+          },
+          "ScheduledQueryEvent": {
+            "Type": "Schedule",
+            "Properties": {
+              "Schedule": "cron(30 18 * * ? *)"
+            }
+          }
+        }
+      }
+    },
+    "SendInterimMailForDraftOkr": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "Okr_Lambda::Okr_Lambda.Function::SendInterimMailForDraftOkr",
+        "Runtime": "dotnetcore3.1",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 60,
+        "Role": "arn:aws:iam::721152773350:role/service-role/Facial-Recognition-Aspire-DB-role-u002vk7n",
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "AWSLambdaFullAccess"
+        ],
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            "sg-03b91ae4655c4485c"
+          ],
+          "SubnetIds": [
+            "subnet-0daee8af7302dc6c6",
+            "subnet-0a2f2993e2a2a8278"
+          ]
+        },
+        "Events": {
+          "RootGet": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/SendInterimMailForDraftOkr",
+              "Method": "ANY"
+            }
+          },
+          "ScheduledQueryEvent": {
+            "Type": "Schedule",
+            "Properties": {
+              "Schedule": "cron(30 18 * * ? *)"
+            }
+          }
+        }
+      }
+    },
+    "SourceAfter3days": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "Okr_Lambda::Okr_Lambda.Function::SourceAfter3days",
+        "Runtime": "dotnetcore3.1",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 60,
+        "Role": "arn:aws:iam::721152773350:role/service-role/Facial-Recognition-Aspire-DB-role-u002vk7n",
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "AWSLambdaFullAccess"
+        ],
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            "sg-03b91ae4655c4485c"
+          ],
+          "SubnetIds": [
+            "subnet-0daee8af7302dc6c6",
+            "subnet-0a2f2993e2a2a8278"
+          ]
+        },
+        "Events": {
+          "RootGet": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/SourceAfter3days",
+              "Method": "ANY"
+            }
+          },
+          "ScheduledQueryEvent": {
+            "Type": "Schedule",
+            "Properties": {
+              "Schedule": "cron(30 18 * * ? *)"
+            }
+          }
+        }
+      }
+    },
+    "ActiveUserAsync":{
+     "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "Okr_Lambda::Okr_Lambda.Function::ActiveUserAsync",
+        "Runtime": "dotnetcore3.1",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Role": "arn:aws:iam::721152773350:role/service-role/Facial-Recognition-Aspire-DB-role-u002vk7n",
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "AWSLambdaFullAccess"
+        ],
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            "sg-03b91ae4655c4485c"
+          ],
+          "SubnetIds": [
+            "subnet-0daee8af7302dc6c6",
+            "subnet-0a2f2993e2a2a8278"
+          ]
+        },
+        "Events": {
+          "RootGet": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/ActiveUserAsync",
+              "Method": "ANY"
+            }
+          },
+          "ScheduledQueryEvent": {
+            "Type": "Schedule",
+            "Properties": {
+              "Schedule": "cron(30 18 * * ? *)"
+            }
+          }
+        }
+      }
+    
+    },
+    "InActiveUserAsync":{
+    
+     "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "Okr_Lambda::Okr_Lambda.Function::InActiveUserAsync",
+        "Runtime": "dotnetcore3.1",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Role": "arn:aws:iam::721152773350:role/service-role/Facial-Recognition-Aspire-DB-role-u002vk7n",
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "AWSLambdaFullAccess"
+        ],
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            "sg-03b91ae4655c4485c"
+          ],
+          "SubnetIds": [
+            "subnet-0daee8af7302dc6c6",
+            "subnet-0a2f2993e2a2a8278"
+          ]
+        },
+        "Events": {
+          "RootGet": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/InActiveUserAsync",
+              "Method": "ANY"
+            }
+          },
+          "ScheduledQueryEvent": {
+            "Type": "Schedule",
+            "Properties": {
+              "Schedule": "cron(30 18 * * ? *)"
+            }
+          }
+        }
+      }
+    
+    }
+
+
+  }
+}
